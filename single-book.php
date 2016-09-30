@@ -43,11 +43,10 @@ $translators = leamh_display_people($post->ID, 'translators');
 </header>
 <main>
                 <div class="container">
-                <h2><i><?php the_title(); ?></i> is a source for:</h2>
+                <h2>Source For</h2>
                     <div class="row">
 
                         <div class="col-sm-3">
-
                             <h3>Grammar</h3>
                             <ul>
                               <li><a href="#">Grammar Post</a></li>
@@ -65,3 +64,4 @@ $translators = leamh_display_people($post->ID, 'translators');
             </main>
         </article>
 <?php endwhile; endif; ?>
+<?php get_footer(); ?>
