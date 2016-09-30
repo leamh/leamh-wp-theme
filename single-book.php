@@ -43,9 +43,10 @@ $translators = leamh_display_people($post->ID, 'translators');
 </header>
 <main>
                 <div class="container">
+                <h2><i><?php the_title(); ?></i> is a source for:</h2>
                     <div class="row">
+
                         <div class="col-sm-3">
-							            <h2>Source for:</h2>
 
                             <h3>Grammar</h3>
                             <ul>
