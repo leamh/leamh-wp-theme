@@ -37,23 +37,10 @@ if ($terms = wp_get_post_terms($post->ID, 'grammars-category')) {
 <h4>Sources</h4>
 <p><a href="#" class="toggleAll">All</a></p>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-<?php
-
-$books = array();
-
-$custom_keys = get_post_custom_keys();
-
-foreach ($custom_keys as $value) {
-  if (strpos($value, 'book-') !== false) {
-    $books[] = $value;
-  }
-}
-
-?>
-
+<?php $books = get_books_for_post(get_the_ID()); ?>
 <?php if (!empty($books)) : foreach ($books as $book_key): ?>
 
-<?php $book = get_post(explode('-', $book_key)[1]); ?>
+<?php $book = get_post($book_key); ?>
 
 <div class="panel panel-default">
   <div class="panel-heading" role="tab" id="heading-<?php echo $book_key; ?>">

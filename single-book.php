@@ -45,7 +45,7 @@ $translators = leamh_display_people($post->ID, 'translators');
                 <div class="container">
                 <h2>Source For</h2>
                     <div class="row">
-                            <?php if ($grammar_posts = get_term_entries_by_book(get_the_ID(), 'grammar')): ?>
+                            <?php if ($grammar_posts = get_term_entries_by_book(get_the_ID(), 'grammars')): ?>
 
                         <div class="col-sm-3">
                             <h3>Grammar</h3>

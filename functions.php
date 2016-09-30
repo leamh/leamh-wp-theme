@@ -387,7 +387,7 @@ function leamh_save_grammar_meta_box( $post_id, $post ) {
       'book_text' => $_POST['leamh_book_text']
     );
 
-    update_post_meta($post_id, 'book-'.$leamh_gramar_entry['book_id'], $leamh_grammar_entry['book_text']);
+    update_post_meta($post_id, 'book-'.$leamh_grammar_entry['book_id'], $leamh_grammar_entry['book_text']);
 
 }
 
