@@ -515,3 +515,20 @@ function leamh_display_people($post_id, $type = 'authors') {
 
 }
 
+function get_books_for_post($post_id) {
+    $ids = array();
+
+    $custom_keys = get_post_custom_keys($post_id);
+
+    foreach ($custom_keys as $value) {
+        if (strpos($value, 'book-') !== false) {
+          $ids[] = explode('-', $value)[1];
+        }
+    }
+
+    return $ids;
+}
+
+function get_glossary_entries_by_book($book_id) {
+
+}

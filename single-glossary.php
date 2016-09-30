@@ -23,23 +23,10 @@
 <h4>Definitions</h4>
 <p><a href="#" class="toggleAll">All</a></p>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-<?php
-
-$books = array();
-
-$custom_keys = get_post_custom_keys();
-
-foreach ($custom_keys as $value) {
-  if (strpos($value, 'book-') !== false) {
-    $books[] = $value;
-  }
-}
-
-?>
-
+<?php $books = get_books_for_post(get_the_id()); ?>
 <?php if (!empty($books)) : foreach ($books as $book_key): ?>
 
-<?php $book = get_post(explode('-', $book_key)[1]); ?>
+<?php $book = get_post($book_key); ?>
 
 <div class="panel panel-default">
   <div class="panel-heading" role="tab" id="heading-<?php echo $book_key; ?>">
@@ -48,6 +35,16 @@ foreach ($custom_keys as $value) {
     <div id="collapse-<?php echo $book_key; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading">
       <div class="panel-body">
       <h3><a href="<?php echo get_permalink($book); ?>"><?php echo $book->post_title; ?></a></h3>
+      <?php if ($authors = leamh_display_people($book->ID)): ?>
+      <p>By <?php echo $authors; ?></p>
+      <?php endif; ?>
+      <?php if ($editors = leamh_display_people($book->ID, 'editors')) :?>
+      <p>Edited by <?php echo $editors; ?></p>
+      <?php endif; ?>
+      <?php if ($translators = leamh_display_people($book->ID, 'translators')) :?>
+      <p>Translated by <?php echo $translators; ?></p>
+      <?php endif; ?>
+
       <p><?php echo wpautop($book->post_content); ?></p>
       <?php echo get_post_meta(get_the_ID(), $book_key, true); ?>
       </div>
