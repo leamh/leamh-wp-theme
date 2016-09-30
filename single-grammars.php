@@ -49,8 +49,16 @@ if ($terms = wp_get_post_terms($post->ID, 'grammars-category')) {
     <div id="collapse-<?php echo $book_key; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading">
       <div class="panel-body">
       <h3><a href="<?php echo get_permalink($book); ?>"><?php echo $book->post_title; ?></a></h3>
-      <p><?php echo wpautop($book->post_content); ?></p>
-      <?php echo get_post_meta(get_the_ID(), $book_key, true); ?>
+      <?php if ($authors = leamh_display_people($book->ID)): ?>
+      <p>By <?php echo $authors; ?></p>
+      <?php endif; ?>
+      <?php if ($editors = leamh_display_people($book->ID, 'editors')) :?>
+      <p>Edited by <?php echo $editors; ?></p>
+      <?php endif; ?>
+      <?php if ($translators = leamh_display_people($book->ID, 'translators')) :?>
+      <p>Translated by <?php echo $translators; ?></p>
+      <?php endif; ?>
+      <?php echo get_post_meta(get_the_ID(), 'book-'.$book_key, true); ?>
       </div>
     </div>
 </div>

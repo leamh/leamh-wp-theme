@@ -44,9 +44,7 @@
       <?php if ($translators = leamh_display_people($book->ID, 'translators')) :?>
       <p>Translated by <?php echo $translators; ?></p>
       <?php endif; ?>
-
-      <p><?php echo wpautop($book->post_content); ?></p>
-      <?php echo get_post_meta(get_the_ID(), $book_key, true); ?>
+      <?php echo get_post_meta(get_the_ID(), 'book-'.$book_key, true); ?>
       </div>
     </div>
 </div>
