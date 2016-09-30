@@ -45,19 +45,32 @@ $translators = leamh_display_people($post->ID, 'translators');
                 <div class="container">
                 <h2>Source For</h2>
                     <div class="row">
+                            <?php if ($grammar_posts = get_term_entries_by_book(get_the_ID(), 'grammar')): ?>
 
                         <div class="col-sm-3">
                             <h3>Grammar</h3>
+
                             <ul>
-                              <li><a href="#">Grammar Post</a></li>
+                              <?php foreach ($grammar_posts as $grammar): ?>
+                              <li><a href="<?php echo get_permalink($grammar->ID); ?>"><?php echo $grammar->post_title; ?></a></li>
+                            <?php endforeach; ?>
                             </ul>
                         </div>
+                            <?php endif; ?>
+                            <?php if ($glossary_posts = get_term_entries_by_book(get_the_ID(), 'glossary')): ?>
+
                          <div class="col-sm-3">
-                           <h3>Glossary</h3>
-                              <ul>
-                              <li><a href="#">Glossary Post</a></li>
-                              </ul>
+                            <h3>Glossary</h3>
+
+                            <ul>
+                              <?php foreach ($glossary_posts as $glossary): ?>
+                              <li><a href="<?php echo get_permalink($glossary->ID); ?>"><?php echo $glossary->post_title; ?></a></li>
+                            <?php endforeach; ?>
+                            </ul>
+
                         </div>
+                            <?php endif; ?>
+
                     </div><!-- row -->
 
                 </div><!-- container -->

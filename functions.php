@@ -529,6 +529,17 @@ function get_books_for_post($post_id) {
     return $ids;
 }
 
-function get_glossary_entries_by_book($book_id) {
-
+function get_term_entries_by_book($book_id, $term_type) {
+    $args = array(
+        'numberposts' => 0,
+        'post_type' => $term_type,
+        'meta_query' => array(
+            array(
+              'key' => 'book-'.$book_id,
+              'compare' => 'EXISTS'
+            )
+        )
+      );
+    return get_posts( $args );
 }
+
