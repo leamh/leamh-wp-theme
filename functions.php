@@ -311,44 +311,40 @@ function leamh_book_meta_box_html( $object, $box ) {
 
 function leamh_grammar_meta_box_html( $object, $box ) { ?>
 <div id="postcustomstuff">
-    <table id="newmeta">
-      <thead>
-        <th class="left">
-            <label for="leamh_book">Book</label>
-        </th>
-        <th>
-            <label for="leamh_book_text">Grammar Entry</label>
-        </th>
-      </thead>
-      <tbody>
-        <tr>
-            <td id="newmetaleft" class="left"><?php echo leamh_posts_select(); ?></td>
-            <td><textarea name="leamh_book_text" rows="20"></textarea></td>
-        </tr>
-      </tbody>
-    </table>
+    <p>
+        <label for="leamh_book">Book</label>
+        <br>
+        <?php echo leamh_posts_select(); ?>
+    </p>
+    <p>
+        <label for="leamh_book_text">Grammar Entry</label>
+        <br>
+    <?php
+
+    wp_editor( htmlspecialchars_decode(get_post_meta( $object->ID, 'leamh_book_text', true )), 'leamh_book_text', $settings = array('textarea_name'=>'leamh_book_text') );
+
+    ?>
+    </p>
 		<input type="hidden" name="leamh_grammar_meta_box_nonce" value="<?php echo wp_create_nonce( plugin_basename( __FILE__ ) ); ?>" />
 </div>
 <?php }
 
 function leamh_glossary_meta_box_html( $object, $box ) { ?>
 <div id="postcustomstuff">
-    <table id="newmeta">
-      <thead>
-        <th class="left">
-            <label for="leamh_book">Book</label>
-        </th>
-        <th>
-            <label for="leamh_book_text">Glossary Entry</label>
-        </th>
-      </thead>
-      <tbody>
-        <tr>
-            <td id="newmetaleft" class="left"><?php echo leamh_posts_select(); ?></td>
-            <td><textarea name="leamh_book_text" rows="20"></textarea></td>
-        </tr>
-      </tbody>
-    </table>
+    <p>
+        <label for="leamh_book">Book</label>
+        <br>
+        <?php echo leamh_posts_select(); ?>
+    </p>
+    <p>
+        <label for="leamh_book_text">Grammar Entry</label>
+        <br>
+    <?php
+
+    wp_editor( htmlspecialchars_decode(get_post_meta( $object->ID, 'leamh_book_text', true )), 'leamh_book_text', $settings = array('textarea_name'=>'leamh_book_text') );
+
+    ?>
+    </p>
 
 		<input type="hidden" name="leamh_glossary_meta_box_nonce" value="<?php echo wp_create_nonce( plugin_basename( __FILE__ ) ); ?>" />
 </div>
