@@ -25,7 +25,6 @@ if ($manuscript = get_post_meta($post->ID, 'Manuscript', 'true')) {
                   <ul class="nav nav-tabs" role="tablist">
                       <li role="presentation" class="active"><a href="#tab-narrative" aria-controls="messages" role="tab" data-toggle="tab">Narrative</a></li>
                       <li role="presentation"><a href="#tab-translation" aria-controls="home" role="tab" data-toggle="tab">Translation</a></li>
-                      <li role="presentation"><a href="#tab-transcription" aria-controls="profile" role="tab" data-toggle="tab">Manuscript</a></li>
                   </ul>
                 </div>
 </header>
@@ -80,11 +79,7 @@ if ($manuscript = get_post_meta($post->ID, 'Manuscript', 'true')) {
                               </aside>
                             </div>
                           </div>
-                          <div role="tabpanel" class="tab-pane" id="tab-transcription">
-                            <div class="col-sm-6">
-                              Manuscript here.
-                            </div>
-                          </div>
+
                       </div>
                 </div>
             </div>
