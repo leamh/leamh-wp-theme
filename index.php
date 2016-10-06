@@ -26,7 +26,7 @@
         </div>
         <div class="col-sm-3">
         <h1><span class="glyphicon glyphicon-pencil"></span></h1>
-        <p>Paleography... <span class="text-muted">Coming Soon?</span></p>
+        <p>Paleography... <span class="text-muted">Coming Soon</span></p>
         </div>
       </div>
     </div>
