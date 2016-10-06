@@ -34,17 +34,19 @@
     </div>
     <div id="collapse-<?php echo $book_key; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading">
       <div class="panel-body">
-      <h3><a href="<?php echo get_permalink($book); ?>"><?php echo $book->post_title; ?></a></h3>
+      <div class="definition">
+          <?php echo get_post_meta(get_the_ID(), 'book-'.$book_key, true); ?>
+      </div>
+      <p class="citation"><a href="<?php echo get_permalink($book); ?>"><?php echo $book->post_title; ?>.</a>
       <?php if ($authors = leamh_display_people($book->ID)): ?>
-      <p>By <?php echo $authors; ?></p>
+      <span class="authored-by"><?php echo $authors; ?>.</span>
       <?php endif; ?>
       <?php if ($editors = leamh_display_people($book->ID, 'editors')) :?>
-      <p>Edited by <?php echo $editors; ?></p>
+      <span class="edited-by">Edited by <?php echo $editors; ?>.</span>
       <?php endif; ?>
       <?php if ($translators = leamh_display_people($book->ID, 'translators')) :?>
-      <p>Translated by <?php echo $translators; ?></p>
+      <span class="translated-by">Translated by <?php echo $translators; ?>.</span>
       <?php endif; ?>
-      <?php echo get_post_meta(get_the_ID(), 'book-'.$book_key, true); ?>
       </div>
     </div>
 </div>

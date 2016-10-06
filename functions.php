@@ -156,6 +156,16 @@ function leamh_texts_meta_box_html( $object, $box ) { ?>
     <br>
     <input type="text" name="era" value="<?php echo get_post_meta( $object->ID, 'Era', true); ?>">
   </p>
+  <p>
+    <label for="teammembers">Team Members</label>
+    <br>
+    <input type="text" name="teammembers" value="<?php echo get_post_meta( $object->ID, 'Team Members', true); ?>">
+  </p>
+  <p>
+    <label for="manuscript">Manuscript </label>
+    <br>
+    <input type="text" name="manuscript" value="<?php echo get_post_meta( $object->ID, 'Manuscript', true); ?>">
+  </p>
 	<p>
 		<label for="narrative">Narrative</label>
 		<br />
@@ -275,7 +285,7 @@ function leamh_save_texts_meta_box( $post_id, $post ) {
     if ( !wp_verify_nonce( $_POST['leamh_texts_meta_box_nonce'], plugin_basename( __FILE__ ) ) )
 		    return $post_id;
 
-    $fields = array('Source', 'Era', 'Narrative', 'Translation');
+    $fields = array('Source', 'Era', 'Team Members', 'Narrative', 'Translation', 'Manuscript');
     leamh_save_custom_metadata( $fields, $post_id );
 }
 

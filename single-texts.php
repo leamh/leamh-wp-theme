@@ -2,13 +2,24 @@
 
 <?php if (have_posts()) : while(have_posts()) : the_post(); ?>
 
+<?php
+
+$text_metadata = array(
+  'Source' => get_post_meta($post->ID, 'Source', 'true'),
+  'Team Members' => get_post_meta($post->ID, 'Team Members', 'true'),
+);
+
+if ($manuscript = get_post_meta($post->ID, 'Manuscript', 'true')) {
+  $text_metadata['Manuscript'] = '<a href="'.$manuscript.'">Manuscript</a>';
+}
+?>
         <article id="page-translation">
           <header>
               <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
             <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-            <?php if ($source = get_post_meta( $post->ID, 'Source', true )): ?><p><?php echo $source; ?></p><?php endif; ?>
+            <p><?php echo implode(' · ', $text_metadata); ?></p>
                         </div>
                     </div>
                   <ul class="nav nav-tabs" role="tablist">
