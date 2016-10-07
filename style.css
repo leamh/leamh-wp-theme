@@ -5895,9 +5895,21 @@ a.dead {
     background-color: transparent !important;
     color: #333; }
 
+.home #masthead {
+  display:none;
+}
+
 #page-homepage .well {
   padding-bottom: 3.5em;
-  margin-bottom: 3em; }
+  margin-bottom: 3em;
+  border: none;
+  background-color: transparent;
+  padding-top: 3.5em;
+}
+
+#page-homepage .well img {
+  margin-bottom: 3.5em;
+}
 
 #page-homepage .well,
 #page-homepage h1 {

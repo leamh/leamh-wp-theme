@@ -3,8 +3,8 @@
   <header>
     <div class="container">
       <div class="well">
-        <h1>Léamh</h1>
-        <p>A Resource for learning to read Early Modern Irish</p>
+        <img src="<?php bloginfo('stylesheet_directory'); ?>/images/logotype.png">
+        <p class="tagline">Learn Early Modern Irish</p>
       </div>
     </div>
   </header>
