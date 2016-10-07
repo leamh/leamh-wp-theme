@@ -6,20 +6,15 @@
 <main>
 <div class="container">
 <div class="row">
-<div class="col-sm-3">
+<div class="col-sm-12">
 <header>
 <p>Headword:</p>
 <h1><?php the_title(); ?></h1>
-<hr/>
-<?php the_content(); ?>
 </header>
-<hr/>
-<?php if ($grammar = get_page_by_path(get_the_title(), OBJECT, 'grammars')): ?>
-<h4>See Also:</h4>
-<a href="<?php echo get_permalink($grammar); ?>">Grammar / <?php echo $grammar->post_title; ?></a>
-<?php endif; ?>
 </div>
-<div class="col-sm-9">
+</div>
+<div class="row">
+<div class="col-sm-8">
 <h4>Definitions</h4>
 <p><a href="#" class="toggleAll">All</a></p>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
