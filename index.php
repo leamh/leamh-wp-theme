@@ -1,54 +1,18 @@
 <?php get_header(); ?>
-<?php if (is_front_page()): ?>
-<article id="page-homepage">
-  <header>
-    <div class="container">
-      <div class="well">
-        <img src="<?php bloginfo('stylesheet_directory'); ?>/images/logotype.png">
-        <p class="tagline">Learn Early Modern Irish</p>
-      </div>
-    </div>
-  </header>
-  <main>
-    <div class="container">
-      <div class="row">
-
-        <div class="col-sm-3">
-        <h1><span class="glyphicon glyphicon-align-left"></span></h1>
-        <p>Fully annotated <a href="<?php echo get_post_type_archive_link( 'texts' ); ?>">example texts</a> of Early Modern Irish poetry and prose.</p>
-        </div>
-        <div class="col-sm-3">
-        <h1><span class="glyphicon glyphicon-book"></span></h1>
-        <p>A <a href="<?php echo get_post_type_archive_link( 'glossary' ); ?>">glossary</a> of words compiled from printed editions and manuscripts.</p>
-        </div>
-        <div class="col-sm-3">
-        <h1><span class="glyphicon glyphicon-check"></span></h1>
-        <p><a href="<?php echo get_post_type_archive_link( 'grammars' ); ?>">Grammar</a> compiled from dozens of sources, detailing how the language works.</p>
-        </div>
-        <div class="col-sm-3">
-        <h1><span class="glyphicon glyphicon-pencil"></span></h1>
-        <p>Paleography... <span class="text-muted">Coming Soon</span></p>
-        </div>
-      </div>
-    </div>
-  </main>
-</article>
-<?php else: ?>
-  <main>
-    <div class="container">
-      <div class="row">
-      <div class="col-sm-12">
+<main role="main" id="main">
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
-      <article>
-      <header>
-      <h1><?php the_title(); ?></h1>
-      </header>
-      <?php the_content(); ?>
-      </article>
+<article>
+<header>
+<h1><?php the_title(); ?></h1>
+</header>
+<?php the_content(); ?>
+</article>
 <?php endwhile; endif; ?>
 </div>
 </div>
 </div>
 </main>
-<?php endif;?>
 <?php get_footer(); ?>
