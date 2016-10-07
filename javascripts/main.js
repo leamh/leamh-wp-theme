@@ -1,9 +1,24 @@
 $( document ).ready(function() {
-  $('[data-toggle="popover"]').popover();
 
-  $('.original .chunk').each(function(){
-  //console.log(this);
-  });
+  $.getJSON( "/wp-content/themes/leamh/javascripts/boc.json", function( data ) {
+    var words = [];
+    $.each( data, function(index, word) {
+      words.push(word);
+    });
+
+    $('[data-toggle="popover"]').popover();
+
+    $('.original .chunk').each(function(){
+    //console.log(this);
+    });
+
+    var findWord = function(wordId) {
+        for (var i = 0, len = words.length; i < len; i++) {
+            if (words[i].id === wordId)
+                return words[i]; // Return as soon as the object is found
+        }
+        return null; // The object was not found
+    }
 
   function displayChunk(thisChunk){
 
@@ -18,15 +33,21 @@ $( document ).ready(function() {
     popoverContent.attr('class', 'popover-content');
 
     var chunkText = $(thisChunk).text();
-    var chunkDefinition = $(thisChunk).attr('data-definition');
-    var chunkFunction = $(thisChunk).attr('data-function');
-    var chunkForm = $(thisChunk).attr('data-form');
+    var chunkDefinition, chunkFunction, chunkForm;
+
+    var word = findWord(chunkText);
+
+    if (word != null) {
+      chunkDefinition = word.dictionary;
+      chunkFunction = word.function;
+      chunkForm = word.form;
+    }
     //console.log(chunkText);
     //console.log(chunkDefinition);
     //console.log(chunkFunction);
 
     $('#chunk-popover .chunk-title').text(chunkText);
-    $('#chunk-popover .chunk-definition').text(chunkDefinition).append(' <a href="/leamh/glossary/'+chunkText+'" class="btn btn-xs btn-default">More ›</a>');
+    $('#chunk-popover .chunk-definition').text(chunkDefinition).append(' <a href="http://leamh.org/glossary/ag/" class="btn btn-xs btn-default">More ›</a>');
     $('#chunk-popover .chunk-function').text(chunkFunction);
     $('#chunk-popover .chunk-form').text(chunkForm);
 
@@ -117,5 +138,5 @@ $( document ).ready(function() {
       console.log('close...');
       //window.location.reload();
   });
-
+  });
 });
