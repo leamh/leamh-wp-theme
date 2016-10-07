@@ -1092,15 +1092,17 @@ textarea {
   line-height: inherit; }
 
 a {
-  color: #337ab7;
+  color: rgba(0,120,0,.8);
   text-decoration: none; }
   a:hover, a:focus {
-    color: #23527c;
+    color: rgba(20,120,20,.95);
     text-decoration: underline; }
   a:focus {
     outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
-    outline-offset: -2px; }
+    outline-offset: -2px;
+    background-color: rgba(20,120,20,.125);
+  }
 
 figure {
   margin: 0; }
