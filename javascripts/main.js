@@ -1,16 +1,11 @@
 $( document ).ready(function() {
 
-  $.getJSON( "/wp-content/themes/leamh/javascripts/boc.json", function( data ) {
+  $.getJSON( "http://leamh.org/wp-content/themes/leamh/javascripts/boc.json", function( data ) {
     var words = [];
     $.each( data, function(index, word) {
       words.push(word);
     });
-
     $('[data-toggle="popover"]').popover();
-
-    $('.original .chunk').each(function(){
-    //console.log(this);
-    });
 
     var findWord = function(wordId) {
         for (var i = 0, len = words.length; i < len; i++) {
@@ -33,23 +28,49 @@ $( document ).ready(function() {
     popoverContent.attr('class', 'popover-content');
 
     var chunkText = $(thisChunk).text();
-    var chunkDefinition, chunkFunction, chunkForm;
+    var chunkDefinition, chunkFunction, chunkForm, chunkNotes, chunkTranslation;
 
     var word = findWord(chunkText);
 
+    var popoverText;
     if (word != null) {
       chunkDefinition = word.dictionary;
-      chunkFunction = word.function;
       chunkForm = word.form;
+      chunkTranslation = word.translation;
+      chunkNotes = word.notes;
     }
     //console.log(chunkText);
     //console.log(chunkDefinition);
     //console.log(chunkFunction);
 
+    var popoverContent = '';
+
+    console.log(word);
+    $.each(word, function(key, value) {
+      console.log(key, value);
+      if (key === 'id') {
+        return true;
+      }
+      if (key === 'dictionary') {
+        value += '<a href="http://leamh.org/glossary/ag/" class="btn btn-xs btn-default">More ›</a>';
+      }
+      var heading = '<h5>'+key+'</h5>';
+      var content = '<div>'+value+'</div>';
+
+      popoverContent += heading + content;
+    });
+
+    console.log(popoverContent);
     $('#chunk-popover .chunk-title').text(chunkText);
-    $('#chunk-popover .chunk-definition').text(chunkDefinition).append(' <a href="http://leamh.org/glossary/ag/" class="btn btn-xs btn-default">More ›</a>');
-    $('#chunk-popover .chunk-function').text(chunkFunction);
-    $('#chunk-popover .chunk-form').text(chunkForm);
+    //$('#chunk-popover .chunk-definition').text(chunkDefinition).append(' <a href="http://leamh.org/glossary/ag/" class="btn btn-xs btn-default">More ›</a>');
+    //$('#chunk-popover .chunk-function').text(chunkFunction);
+    //$('#chunk-popover .chunk-form').text(chunkForm);
+    //$('#chunk-popover .popover-content').append('<div class="translation">').text("<h5>Translation</h5><div>"+chunkTranslation+"</div>");
+
+    $('#chunk-popover .popover-content').append(popoverContent);
+
+    //$(popoverContent).append('<h5>').text("Notes");
+    //$(popoverContent).append('<div>').text(chunkNotes);
 
     $(thisChunk).children('.word').each(function(){
       var listItem = $('<li>');

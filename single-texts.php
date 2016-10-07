@@ -40,12 +40,6 @@ if ($manuscript = get_post_meta($post->ID, 'Manuscript', 'true')) {
                                 <a href="#" title="close" class="glyphicon glyphicon-remove" id="popover-close"></a>
                                 <h3 class="popover-title chunk-title">Chunk Title Goes Here, the Original Text</h3>
                                 <div class="popover-content">
-                                  <h5 class="chunk-subheading">Definition</h5>
-                                  <p class="chunk-definition">Definition goes here.</p>
-                                  <h5 class="chunk-subheading">Form</h5>
-                                  <p class="chunk-form">Form goes here.</p>
-                                  <h5 class="chunk-subheading">Function</h5>
-                                  <p class="chunk-function">Function goes here.</p>
                                 </div>
                               </div>
                              </div>
