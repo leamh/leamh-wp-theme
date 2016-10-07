@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php if (is_front_page()): ?>
 <article id="page-homepage">
   <header>
     <div class="container">
@@ -32,5 +33,22 @@
     </div>
   </main>
 </article>
-
+<?php else: ?>
+  <main>
+    <div class="container">
+      <div class="row">
+      <div class="col-sm-12">
+<?php if(have_posts()): while(have_posts()): the_post(); ?>
+      <article>
+      <header>
+      <h1><?php the_title(); ?></h1>
+      </header>
+      <?php the_content(); ?>
+      </article>
+<?php endwhile; endif; ?>
+</div>
+</div>
+</div>
+</main>
+<?php endif;?>
 <?php get_footer(); ?>
