@@ -46,12 +46,7 @@
         <li><a href="<?php echo get_post_type_archive_link('grammars'); ?>">Grammar</a></li>
         <li><a href="<?php echo get_post_type_archive_link('glossary'); ?>">Glossary</a></li>
       </ul>
-      <form class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <a href="search-results.php" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></a>
-      </form>
+      <?php get_search_form(); ?>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
