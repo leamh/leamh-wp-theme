@@ -3785,10 +3785,18 @@ tbody.collapse.in {
 
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
   font-size: 18px;
-  line-height: 20px;
-  height: 50px; }
+  padding-left: 15px;
+  margin-top: 10px;
+  max-width: 80px;
+}
+
+.navbar-brand img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
   .navbar-brand:hover, .navbar-brand:focus {
     text-decoration: none; }
   .navbar-brand > img {
@@ -3846,7 +3854,9 @@ tbody.collapse.in {
   @media (min-width: 768px) {
     .navbar-nav {
       float: left;
-      margin: 0; }
+      margin: 0;
+      margin-left: 20px;
+    }
       .navbar-nav > li {
         float: left; }
         .navbar-nav > li > a {

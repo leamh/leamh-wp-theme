@@ -36,7 +36,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<?php echo bloginfo('url'); ?>">Léamh</a>
+      <a class="navbar-brand" href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logotype.png" alt="<?php echo bloginfo('name'); ?>" /></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,7 +47,7 @@
         <li><a href="<?php echo get_post_type_archive_link('glossary'); ?>">Glossary</a></li>
         <li><a href="#" class="inactive">Paleography</a></li>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+      <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
