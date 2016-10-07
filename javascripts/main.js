@@ -51,10 +51,17 @@ $( document ).ready(function() {
       if (key === 'id') {
         return true;
       }
+      var headingText = key;
       if (key === 'dictionary') {
+        headingText = 'Dictionary Form and Meaning';
         value += '<a href="http://leamh.org/glossary/ag/" class="btn btn-xs btn-default">More ›</a>';
       }
-      var heading = '<h5>'+key+'</h5>';
+
+      if (key === 'form') {
+        headingText = 'Form Here';
+      }
+
+      var heading = '<h5>'+headingText+'</h5>';
       var content = '<div>'+value+'</div>';
 
       popoverContent += heading + content;
