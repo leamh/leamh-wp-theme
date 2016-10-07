@@ -45,7 +45,6 @@
         <li><a href="<?php echo get_post_type_archive_link('texts'); ?>">Texts <span class="sr-only">(current)</span></a></li>
         <li><a href="<?php echo get_post_type_archive_link('grammars'); ?>">Grammar</a></li>
         <li><a href="<?php echo get_post_type_archive_link('glossary'); ?>">Glossary</a></li>
-        <li><a href="#" class="inactive">Paleography</a></li>
       </ul>
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
