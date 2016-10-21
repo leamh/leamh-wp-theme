@@ -36,7 +36,7 @@ $texts = new WP_Query($query);
   <thead>
     <tr>
       <th>Title</th>
-      <th>Era</th>
+      <th>Genre</th>
     </tr>
   </thead>
   <tbody>
@@ -44,9 +44,8 @@ $texts = new WP_Query($query);
     <tr>
       <td>
         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br>
-        <span class="text-muted small"><?php echo get_post_meta(get_the_ID(), 'Source', true); ?></span>
       </td>
-      <td><?php echo get_post_meta(get_the_ID(), 'Era', true); ?></td>
+      <td><?php echo get_post_meta(get_the_ID(), 'Genre', true); ?></td>
     </tr>
   <?php endwhile; ?>
   </tbody>
