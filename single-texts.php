@@ -4,13 +4,18 @@
 
 <?php
 
-$text_metadata = array(
-  'Source' => get_post_meta($post->ID, 'Source', 'true'),
-  'Team Members' => get_post_meta($post->ID, 'Team Members', 'true'),
-);
+$text_metadata = array();
 
-if ($manuscript = get_post_meta($post->ID, 'Manuscript', 'true')) {
-  $text_metadata['Manuscript'] = '<a href="'.$manuscript.'">Manuscript</a>';
+if ($source = get_post_meta($post->ID, 'Source', true)) {
+  $text_metadata['source'] = '<b>Source</b>: '.$source;
+}
+
+if ($team = get_post_meta($post->ID, 'Team Members', true)) {
+  $text_metadata['team'] = '<b>Léamh team</b>: '.$team;
+}
+
+if ($manuscript = get_post_meta($post->ID, 'Manuscript', true)) {
+  $text_metadata['manuscript'] = '<b>Manuscript</b>: <a href="'.$manuscript.'">Manuscript</a>';
 }
 ?>
         <article id="page-translation">
