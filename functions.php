@@ -347,11 +347,12 @@ function leamh_save_custom_metadata( $fields = array(), $post_id ) {
           if ( $new_meta_value && '' == $meta_value )
               add_post_meta( $post_id, $field, $new_meta_value, true );
 
+          elseif ( '' == $new_meta_value && $meta_value )
+              delete_post_meta( $post_id, $field, $meta_value );
+
           elseif ( $new_meta_value != $meta_value )
               update_post_meta( $post_id, $field, $new_meta_value );
 
-          elseif ( '' == $new_meta_value && $meta_value )
-              delete_post_meta( $post_id, $field, $meta_value );
         }
 
     }
