@@ -152,9 +152,9 @@ function leamh_texts_meta_box_html( $object, $box ) { ?>
     <?php echo leamh_posts_select('book','source', get_post_meta($object->ID, 'Source', true)); ?>
   </p>
   <p>
-    <label for="era">Era</label>
+    <label for="genre">Genre</label>
     <br>
-    <input type="text" name="era" value="<?php echo get_post_meta( $object->ID, 'Era', true); ?>">
+    <input type="text" name="genre" value="<?php echo get_post_meta( $object->ID, 'Genre', true); ?>">
   </p>
   <p>
     <label for="teammembers">Team Members</label>
@@ -285,7 +285,7 @@ function leamh_save_texts_meta_box( $post_id, $post ) {
     if ( !wp_verify_nonce( $_POST['leamh_texts_meta_box_nonce'], plugin_basename( __FILE__ ) ) )
 		    return $post_id;
 
-    $fields = array('Source','Era', 'Team Members', 'Narrative', 'Translation', 'Manuscript');
+    $fields = array('Source', 'Genre', 'Team Members', 'Narrative', 'Translation', 'Manuscript');
 
     leamh_save_custom_metadata( $fields, $post_id );
 
