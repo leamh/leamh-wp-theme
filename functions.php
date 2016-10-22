@@ -368,7 +368,7 @@ function leamh_posts_select($post_type = 'book', $field_name = 'leamh_book', $va
 
     if ($posts) {
         $html = '<select name="'.$field_name.'">'
-              . '<option>Select a Book</option>';
+              . '<option value="">Select a Book</option>';
 
         foreach ($posts as $post) {
             $selected = '';
