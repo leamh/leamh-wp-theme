@@ -23,7 +23,7 @@ if ($manuscript = get_post_meta($post->ID, 'Manuscript', true)) {
               <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-            <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+            <h1><?php the_title(); ?></h1>
             <p><?php echo implode(' · ', $text_metadata); ?></p>
                         </div>
                     </div>
