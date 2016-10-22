@@ -149,7 +149,7 @@ function leamh_texts_meta_box_html( $object, $box ) { ?>
   <p>
     <label for="source">Source</label>
     <br>
-    <input type="text" name="source" value="<?php echo get_post_meta( $object->ID, 'Source', true); ?>">
+    <?php echo leamh_posts_select('book','source', get_post_meta($object->ID, 'Source', true)); ?>
   </p>
   <p>
     <label for="era">Era</label>
@@ -285,8 +285,10 @@ function leamh_save_texts_meta_box( $post_id, $post ) {
     if ( !wp_verify_nonce( $_POST['leamh_texts_meta_box_nonce'], plugin_basename( __FILE__ ) ) )
 		    return $post_id;
 
-    $fields = array('Source', 'Era', 'Team Members', 'Narrative', 'Translation', 'Manuscript');
+    $fields = array('Source','Era', 'Team Members', 'Narrative', 'Translation', 'Manuscript');
+
     leamh_save_custom_metadata( $fields, $post_id );
+
 }
 
 function leamh_save_book_meta_box( $post_id, $post ) {
@@ -358,18 +360,22 @@ function leamh_save_custom_metadata( $fields = array(), $post_id ) {
     }
 }
 
-function leamh_posts_select($post_type = 'book') {
+function leamh_posts_select($post_type = 'book', $field_name = 'leamh_book', $value = null) {
 
     $html = '';
 
     $posts = get_posts(array('post_type' => $post_type, 'numberposts' => 0));
 
     if ($posts) {
-        $html = '<select name="leamh_book">'
+        $html = '<select name="'.$field_name.'">'
               . '<option>Select a Book</option>';
 
         foreach ($posts as $post) {
-            $html .= '<option value="'.$post->ID.'">'.$post->post_title.'</option>';
+            $selected = '';
+            if ($post->ID == $value) {
+              $selected = ' selected="selected"';
+            }
+            $html .= '<option value="'.$post->ID.'"'.$selected.'>'.$post->post_title.'</option>';
         }
 
         $html .= '</select>';

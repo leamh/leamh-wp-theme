@@ -7,7 +7,7 @@
 $text_metadata = array();
 
 if ($source = get_post_meta($post->ID, 'Source', true)) {
-  $text_metadata['source'] = '<b>Source</b>: '.$source;
+  $text_metadata['source'] = '<b>Source</b>: <a href="'.get_permalink($source).'">'.get_the_title($source).'</a>';
 }
 
 if ($team = get_post_meta($post->ID, 'Team Members', true)) {
