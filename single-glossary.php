@@ -15,8 +15,8 @@
 </div>
 <div class="row">
   <div class="col-sm-8">
-    <h4>Definitions</h4>
-    <p><a href="#" class="toggleAll">All</a></p>
+    <h4>Definitions (by source)</h4>
+    <p><a href="#" class="toggleAll">Show all</a></p>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 <?php $books = get_books_for_post(get_the_id()); ?>
 <?php if (!empty($books)) : foreach ($books as $book_key): ?>
