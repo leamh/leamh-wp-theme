@@ -159,7 +159,11 @@ function leamh_texts_meta_box_html( $object, $box ) { ?>
   <p>
     <label for="teammembers">Team Members</label>
     <br>
-    <input type="text" name="teammembers" value="<?php echo get_post_meta( $object->ID, 'Team Members', true); ?>">
+<?php
+
+    wp_editor( htmlspecialchars_decode(get_post_meta( $object->ID, 'Team Members', true )), 'teammembers', $settings = array('textarea_name'=>'teammembers', 'textarea_rows' => 5) );
+
+?>
   </p>
   <p>
     <label for="manuscript">Manuscript </label>
