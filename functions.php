@@ -346,10 +346,7 @@ function leamh_save_custom_metadata( $fields = array(), $post_id ) {
           $meta_value = get_post_meta( $post_id, $field, true );
           $new_meta_value = stripslashes( $_POST[strtolower(str_replace(" ", "",$field))] );
 
-          if ( $new_meta_value && '' == $meta_value )
-              add_post_meta( $post_id, $field, $new_meta_value, true );
-
-          elseif ( '' == $new_meta_value && $meta_value )
+          if ( '' == $new_meta_value )
               delete_post_meta( $post_id, $field, $meta_value );
 
           elseif ( $new_meta_value != $meta_value )
