@@ -5,6 +5,7 @@ $args = array(
   'taxonomy' => 'texts-category',
   'post_type' => 'texts',
   'posts_per_page' => -1,
+  'orderby' => 'post_title',
   'order' => ASC
 );
 
