@@ -311,7 +311,7 @@ function leamh_save_grammar_meta_box( $post_id, $post ) {
     if ( !wp_verify_nonce( $_POST['leamh_grammar_meta_box_nonce'], plugin_basename( __FILE__ ) ) )
 		    return $post_id;
 
-    if ( (is_int($_POST['leamh_book'])) && (!empty($_POST['leamh_book_text']))) {
+    if ( !empty($_POST['leamh_book']) && !empty($_POST['leamh_book_text'])) {
         $leamh_grammar_entry = array(
         'book_id' => $_POST['leamh_book'],
         'book_text' => $_POST['leamh_book_text']
@@ -325,7 +325,7 @@ function leamh_save_glossary_meta_box( $post_id, $post ) {
     if ( !wp_verify_nonce( $_POST['leamh_glossary_meta_box_nonce'], plugin_basename( __FILE__ ) ) )
 		    return $post_id;
 
-    if ( (is_int($_POST['leamh_book'])) && (!empty($_POST['leamh_book_text']))) {
+    if (!empty($_POST['leamh_book']) && !empty($_POST['leamh_book_text'])) {
         $leamh_grammar_entry = array(
         'book_id' => $_POST['leamh_book'],
         'book_text' => $_POST['leamh_book_text']
