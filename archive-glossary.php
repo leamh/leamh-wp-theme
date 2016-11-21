@@ -12,33 +12,23 @@
           <nav>
           <?php
 
-$letters = range('A', 'Z');
+$letters = range('a', 'z');
 
 foreach ($letters as $letter) {
   echo "<a href='#$letter'>$letter</a> ";
 }
+
 ?>
 </nav>
       </div>
 </div>
       <div class="row">
         <div class="col-sm-8">
-          <table class="table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th>Word</th>
-                <th>&nbsp;</th>
-              </tr>
-            </thead>
-            <tbody>
+
               <?php if(have_posts()): while(have_posts()): the_post(); ?>
-              <tr>
-                <td><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></td>
-                <td><?php the_excerpt(); ?></td>
-              </tr>
+              <li><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></li>
               <?php endwhile; endif; ?>
-            </tbody>
-          </table>
+          </ul>
         </div>
       </div>
     </div>
