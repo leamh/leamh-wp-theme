@@ -3,7 +3,8 @@
   <header>
     <div class="container">
       <div class="well">
-        <img src="<?php bloginfo('stylesheet_directory'); ?>/images/logotype.png">
+<?php get_template_part('images/inline', 'logo.svg'); ?>
+
         <p class="tagline">Learn Early Modern Irish</p>
       </div>
     </div>

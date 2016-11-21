@@ -3793,7 +3793,7 @@ tbody.collapse.in {
   max-width: 80px;
 }
 
-.navbar-brand img {
+.navbar-brand svg {
   max-width: 100%;
   width: auto;
   height: auto;
@@ -5909,8 +5909,10 @@ a.dead {
   padding-top: 3.5em;
 }
 
-#page-homepage .well img {
-  margin-bottom: 3.5em;
+#page-homepage .well svg {
+  display:block;
+
+  margin:0 auto 3.5em;
 }
 
 #page-homepage .well,

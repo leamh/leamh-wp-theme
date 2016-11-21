@@ -36,7 +36,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logotype.png" alt="<?php echo bloginfo('name'); ?>" /></a>
+      <a class="navbar-brand" href="<?php bloginfo('url'); ?>">
+<?php get_template_part('images/inline', 'logo.svg'); ?>
+</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
