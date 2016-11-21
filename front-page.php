@@ -25,10 +25,6 @@
         <h1><span class="glyphicon glyphicon-check"></span></h1>
         <p><a href="<?php echo get_post_type_archive_link( 'grammars' ); ?>">Grammar</a> detailing how the language works.</p>
         </div>
-        <div class="col-sm-3">
-        <h1><span class="glyphicon glyphicon-pencil"></span></h1>
-        <p>Paleography... <span class="text-muted">Coming Soon</span></p>
-        </div>
       </div>
     </div>
   </main>
