@@ -47,6 +47,8 @@
         <li><a href="<?php echo get_post_type_archive_link('texts'); ?>">Texts <span class="sr-only">(current)</span></a></li>
         <li><a href="<?php echo get_post_type_archive_link('grammars'); ?>">Grammar</a></li>
         <li><a href="<?php echo get_post_type_archive_link('glossary'); ?>">Glossary</a></li>
+        <li><a href="<?php echo get_post_type_archive_link('book'); ?>">Books</a></li>
+        <li><a href="<?php echo get_post_type_archive_link('person'); ?>">People</a></li>
       </ul>
       <?php get_search_form(); ?>
     </div><!-- /.navbar-collapse -->
