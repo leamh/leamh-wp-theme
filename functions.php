@@ -503,3 +503,18 @@ function get_term_entries_by_book($book_id, $term_type) {
     return get_posts( $args );
 }
 
+function get_texts_by_book($book_id) {
+
+    $args = array(
+        'numberposts' => 0,
+        'post_type' => 'texts',
+        'meta_query' => array(
+            array(
+              'key' => 'source',
+              'value' => $book_id
+            )
+        )
+      );
+    return get_posts( $args );
+}
+
