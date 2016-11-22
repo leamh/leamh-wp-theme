@@ -7,15 +7,19 @@
 $text_metadata = array();
 
 if ($source = get_post_meta($post->ID, 'Source', true)) {
-  $text_metadata['source'] = '<b>Source</b>: <a href="'.get_permalink($source).'">'.get_the_title($source).'</a>';
+  $text_metadata['source'] = '<li><b>Source</b>: <a href="'.get_permalink($source).'">'.get_the_title($source).'</a></li>';
 }
 
 if ($team = get_post_meta($post->ID, 'Team Members', true)) {
-  $text_metadata['team'] = '<b>Léamh team</b>: '.$team;
+  $text_metadata['team'] = '<li><b>Léamh team</b>: '.$team.'</li>';
+}
+
+if ($excerpt = $post->post_excerpt) {
+  $text_metadata['excerpt'] = '<li><b>Description</b>: '.$excerpt.'</li>';
 }
 
 if ($manuscript = get_post_meta($post->ID, 'Manuscript', true)) {
-  $text_metadata['manuscript'] = '<b>Manuscript</b>: <a href="'.$manuscript.'">Manuscript</a>';
+  $text_metadata['manuscript'] = '<li><b>Manuscript</b>: <a href="'.$manuscript.'">Manuscript</a></li>';
 }
 ?>
         <article id="page-translation">
@@ -25,7 +29,7 @@ if ($manuscript = get_post_meta($post->ID, 'Manuscript', true)) {
                         <div class="col-sm-12">
             <h1><?php the_title(); ?></h1>
             <?php if ($authors = leamh_display_people($post->ID, 'authors')): ?><p>By <?php echo $authors; ?></p><?php endif; ?>
-            <p><?php echo implode(' · ', $text_metadata); ?></p>
+            <ul><?php echo implode('', $text_metadata); ?></ul>
                         </div>
                     </div>
                   <ul class="nav nav-tabs" role="tablist">
