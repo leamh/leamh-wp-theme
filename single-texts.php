@@ -24,6 +24,7 @@ if ($manuscript = get_post_meta($post->ID, 'Manuscript', true)) {
                     <div class="row">
                         <div class="col-sm-12">
             <h1><?php the_title(); ?></h1>
+            <?php if ($authors = leamh_display_people($post->ID, 'authors')): ?><p>By <?php echo $authors; ?></p><?php endif; ?>
             <p><?php echo implode(' · ', $text_metadata); ?></p>
                         </div>
                     </div>

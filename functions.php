@@ -146,6 +146,12 @@ function leamh_custom_meta_boxes() {
 }
 
 function leamh_texts_meta_box_html( $object, $box ) { ?>
+<p>
+    <label for="authors">Authors</label>
+    <br>
+    <?php echo leamh_people_select('authors'); ?>
+  </p>
+
   <p>
     <label for="source">Source</label>
     <br>
@@ -287,7 +293,13 @@ function leamh_glossary_meta_box_html( $object, $box ) { ?>
 
 function leamh_save_texts_meta_box( $post_id, $post ) {
     if ( !wp_verify_nonce( $_POST['leamh_texts_meta_box_nonce'], plugin_basename( __FILE__ ) ) )
-		    return $post_id;
+      return $post_id;
+
+    $peoplefields = array('authors');
+    foreach ($peoplefields as $field) {
+      $data = maybe_serialize($_POST[$field]);
+      update_post_meta($post_id, ucwords($field), $data);
+    }
 
     $fields = array('Source', 'Genre', 'Team Members', 'Narrative', 'Translation', 'Manuscript');
 
@@ -395,6 +407,12 @@ function leamh_people_select($field) {
       $data = get_post_meta( $post->ID, ucwords($field), true );
       $data = maybe_unserialize($data);
       $html .= '<select multiple="multiple" name="'.$field.'[]" class="select-multiple" size="5">';
+      $html .= '<option ';
+        if ((!empty($data)) && (in_array('anonymous', $data))) {
+          $html .= 'selected="selected" ';
+        }
+      $html .= 'value="anonymous">Anonymous</option>';
+
       foreach ($people as $person) {
           $attributes = array(
             'value' => $person->ID
@@ -437,14 +455,18 @@ function comma_and($array) {
 
 
 function leamh_display_people($post_id, $type = 'authors') {
-  $person_ids = maybe_unserialize(get_post_meta($post_id, ucwords($type), true));
+  $persons = maybe_unserialize(get_post_meta($post_id, ucwords($type), true));
   $html = '';
   $links = array();
-  if (!empty($person_ids)) {
-    foreach ($person_ids as $id) {
-      $links[] = '<a href="' . get_permalink($id) . '">'
-                    . get_the_title($id)
+  if (!empty($persons)) {
+    foreach ($persons as $person) {
+      if ($person == 'anonymous') {
+        $links[] = 'Anonymous';
+      } else {
+        $links[] = '<a href="' . get_permalink($person) . '">'
+                    . get_the_title($person)
                     . '</a>';
+      }
     }
   }
   $html = comma_and($links);
