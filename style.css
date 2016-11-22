@@ -3599,6 +3599,14 @@ tbody.collapse.in {
   .nav > li > a > img {
     max-width: none; }
 
+#page-translation aside {
+  padding-top: 2rem;
+}
+
+#page-translation aside h2 {
+  display:none;
+}
+
 .nav-tabs {
   border-bottom: 1px solid #ddd;
   text-align:right;
