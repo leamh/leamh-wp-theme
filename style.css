@@ -3599,10 +3599,6 @@ tbody.collapse.in {
   .nav > li > a > img {
     max-width: none; }
 
-#page-translation aside {
-  padding-top: 2rem;
-}
-
 #page-translation aside h2 {
   display:none;
 }
@@ -3684,6 +3680,7 @@ tbody.collapse.in {
       border-bottom-color: #fff; } }
 
 .tab-content > .tab-pane {
+  padding-top: 2rem;
   display: none; }
 .tab-content > .active {
   display: block; }
@@ -5862,10 +5859,6 @@ pre {
 .chunk-placeholder {
   padding: 16px 0 7px 0; }
 
-.chunk {
-  border-bottom: 1px dotted #ccc;
-  padding: 13px 0 3px 0; }
-
 .chunk.active,
 .chunk:hover {
   background-color: yellow;
@@ -5873,8 +5866,7 @@ pre {
 
 .word {
   display: inline-block;
-  padding: 3px; }
-
+}
 .word:hover {
   background-color: orange; }
 
