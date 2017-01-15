@@ -199,7 +199,7 @@ function leamh_texts_meta_box_html( $object, $box ) { ?>
 <?php }
 
 function leamh_book_meta_box_html( $object, $box ) {
-  $people = get_posts(array('numberposts' => 0, 'post_type' => 'person'));
+  $people = get_posts(array('numberposts' => -1, 'post_type' => 'person'));
 
 ?>
 
@@ -377,7 +377,7 @@ function leamh_posts_select($post_type = 'book', $field_name = 'leamh_book', $va
 
     $html = '';
 
-    $posts = get_posts(array('post_type' => $post_type, 'numberposts' => 0));
+    $posts = get_posts(array('post_type' => $post_type, 'numberposts' => -1));
 
     if ($posts) {
         $html = '<select name="'.$field_name.'">'
