@@ -5937,3 +5937,18 @@ a.dead {
 .line {
   color: #ccc; }
 
+.post-type-archive-glossary .nav-glossary a,
+.single-glossary .nav-glossary a,
+.post-type-archive-grammars .nav-grammars a,
+.tax-grammars-category .nav-grammars a,
+.single-grammars .nav-grammars a,
+.post-type-archive-texts .nav-texts a,
+.single-texts .nav-texts a,
+.post-type-archive-book .nav-book a,
+.single-book .nav-book a,
+.post-type-archive-person .nav-person a,
+.single-person .nav-person a {
+  font-weight: bold;
+  color: #111 !important;
+}
+
