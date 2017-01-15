@@ -402,7 +402,7 @@ function leamh_people_select($field) {
 
     global $post;
     $html = '';
-    $people = get_posts(array('post_type' => 'person', 'numberposts' => 0));
+    $people = get_posts(array('post_type' => 'person', 'numberposts' => -1));
     if ($people) {
       $data = get_post_meta( $post->ID, ucwords($field), true );
       $data = maybe_unserialize($data);
