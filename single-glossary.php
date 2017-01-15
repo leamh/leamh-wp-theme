@@ -31,13 +31,13 @@
       </div>
       <p class="citation"><a href="<?php echo get_permalink($book); ?>"><?php echo $book->post_title; ?>.</a>
       <?php if ($authors = leamh_display_people($book->ID)): ?>
-      <span class="authored-by"><?php echo $authors; ?>.</span>
+      <span class="authored-by">Author: <?php echo $authors; ?>.</span>
       <?php endif; ?>
       <?php if ($editors = leamh_display_people($book->ID, 'editors')) :?>
-      <span class="edited-by">Edited by <?php echo $editors; ?>.</span>
+      <span class="edited-by">Editor: <?php echo $editors; ?>.</span>
       <?php endif; ?>
       <?php if ($translators = leamh_display_people($book->ID, 'translators')) :?>
-      <span class="translated-by">Translated by <?php echo $translators; ?>.</span>
+      <span class="translated-by">Translator: <?php echo $translators; ?>.</span>
       <?php endif; ?>
       </div>
     </div>
