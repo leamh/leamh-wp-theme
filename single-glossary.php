@@ -18,9 +18,7 @@
     <p><a href="#" class="toggleAll">Show all</a></p>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 <?php $books = get_books_for_post(get_the_id()); ?>
-<?php if (!empty($books)) : foreach ($books as $book_key): ?>
-
-<?php $book = get_post($book_key); ?>
+<?php if (!empty($books)) : foreach ($books as $book): $book_key = $book->ID; ?>
 
 <div class="panel panel-default">
   <div class="panel-heading" role="tab" id="heading-<?php echo $book_key; ?>">

@@ -476,6 +476,7 @@ function leamh_display_people($post_id, $type = 'authors') {
 }
 
 function get_books_for_post($post_id) {
+
     $ids = array();
 
     $custom_keys = get_post_custom_keys($post_id);
@@ -486,7 +487,14 @@ function get_books_for_post($post_id) {
         }
     }
 
-    return $ids;
+    $args = array(
+      'post_type' => 'book',
+      'order' => 'ASC',
+      'orderby' => 'title',
+      'post__in' => $ids
+    );
+
+    return get_posts($args);
 }
 
 function get_term_entries_by_book($book_id, $term_type) {
