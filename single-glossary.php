@@ -8,7 +8,6 @@
 <div class="row">
   <div class="col-sm-12">
     <header>
-    <p>Headword:</p>
     <h1><?php the_title(); ?></h1>
     </header>
   </div>
