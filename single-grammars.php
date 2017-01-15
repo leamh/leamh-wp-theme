@@ -32,9 +32,7 @@ if ($terms = wp_get_post_terms($post->ID, 'grammars-category')) {
     <div class="row">
       <div class="col-sm-6">
       <?php the_content(); ?>
-      </div>
-      <div class="col-sm-6">
-<h4>Sources</h4>
+<h3>Sources</h3>
 <p><a href="#" class="toggleAll">All</a></p>
  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 <?php $books = get_books_for_post(get_the_id()); ?>
