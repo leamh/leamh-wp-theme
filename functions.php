@@ -499,7 +499,7 @@ function get_books_for_post($post_id) {
 
 function get_term_entries_by_book($book_id, $term_type) {
     $args = array(
-        'numberposts' => 0,
+        'numberposts' => -1,
         'post_type' => $term_type,
         'meta_query' => array(
             array(
@@ -514,7 +514,7 @@ function get_term_entries_by_book($book_id, $term_type) {
 function get_texts_by_book($book_id) {
 
     $args = array(
-        'numberposts' => 0,
+        'numberposts' => -1,
         'post_type' => 'texts',
         'meta_query' => array(
             array(
