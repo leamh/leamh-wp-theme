@@ -141,8 +141,8 @@ add_action( 'save_post', 'leamh_save_glossary_meta_box', 10, 2 );
 function leamh_custom_meta_boxes() {
     add_meta_box( 'leamh-texts-meta-box', 'Additional Texts Fields', 'leamh_texts_meta_box_html', 'texts', 'normal', 'high' );
     add_meta_box( 'leamh-book-meta-box', 'Additional Book Fields', 'leamh_book_meta_box_html', 'book', 'normal', 'high' );
-  	add_meta_box( 'leamh-grammar-meta-box', 'Books', 'leamh_grammar_meta_box_html', 'grammars', 'normal', 'high' );
-  	add_meta_box( 'leamh-glossary-meta-box', 'Books', 'leamh_glossary_meta_box_html', 'glossary', 'normal', 'high' );
+    add_meta_box( 'leamh-grammar-meta-box', 'Books', 'leamh_grammar_meta_box_html', 'grammars', 'normal', 'high' );
+    add_meta_box( 'leamh-glossary-meta-box', 'Books', 'leamh_glossary_meta_box_html', 'glossary', 'normal', 'high' );
 }
 
 function leamh_texts_meta_box_html( $object, $box ) { ?>
@@ -176,9 +176,9 @@ function leamh_texts_meta_box_html( $object, $box ) { ?>
     <br>
     <input type="text" name="manuscript" value="<?php echo get_post_meta( $object->ID, 'Manuscript', true); ?>">
   </p>
-	<p>
-		<label for="narrative">Narrative</label>
-		<br />
+  <p>
+    <label for="narrative">Narrative</label>
+    <br />
 
 <?php
 
@@ -187,15 +187,15 @@ function leamh_texts_meta_box_html( $object, $box ) { ?>
 ?>
 <br>
 <label for="narrative">Translation</label>
-		<br />
+    <br />
 <?php
 
     wp_editor( htmlspecialchars_decode(get_post_meta( $object->ID, 'Translation', true )), 'translation', $settings = array('textarea_name'=>'translation') );
 
 ?>
 
-		<input type="hidden" name="leamh_texts_meta_box_nonce" value="<?php echo wp_create_nonce( plugin_basename( __FILE__ ) ); ?>" />
-	</p>
+    <input type="hidden" name="leamh_texts_meta_box_nonce" value="<?php echo wp_create_nonce( plugin_basename( __FILE__ ) ); ?>" />
+  </p>
 <?php }
 
 function leamh_book_meta_box_html( $object, $box ) {
@@ -246,8 +246,8 @@ function leamh_book_meta_box_html( $object, $box ) {
     <br>
     <input type="text" name="isbn" value="<?php echo get_post_meta( $object->ID, 'ISBN', true); ?>">
   </p>
-		<input type="hidden" name="leamh_book_meta_box_nonce" value="<?php echo wp_create_nonce( plugin_basename( __FILE__ ) ); ?>" />
-	</p>
+    <input type="hidden" name="leamh_book_meta_box_nonce" value="<?php echo wp_create_nonce( plugin_basename( __FILE__ ) ); ?>" />
+  </p>
 <?php }
 
 function leamh_grammar_meta_box_html( $object, $box ) { ?>
@@ -266,7 +266,7 @@ function leamh_grammar_meta_box_html( $object, $box ) { ?>
 
     ?>
     </p>
-		<input type="hidden" name="leamh_grammar_meta_box_nonce" value="<?php echo wp_create_nonce( plugin_basename( __FILE__ ) ); ?>" />
+    <input type="hidden" name="leamh_grammar_meta_box_nonce" value="<?php echo wp_create_nonce( plugin_basename( __FILE__ ) ); ?>" />
 </div>
 <?php }
 
@@ -287,7 +287,7 @@ function leamh_glossary_meta_box_html( $object, $box ) { ?>
     ?>
     </p>
 
-		<input type="hidden" name="leamh_glossary_meta_box_nonce" value="<?php echo wp_create_nonce( plugin_basename( __FILE__ ) ); ?>" />
+    <input type="hidden" name="leamh_glossary_meta_box_nonce" value="<?php echo wp_create_nonce( plugin_basename( __FILE__ ) ); ?>" />
 </div>
 <?php }
 
@@ -309,7 +309,7 @@ function leamh_save_texts_meta_box( $post_id, $post ) {
 
 function leamh_save_book_meta_box( $post_id, $post ) {
     if ( !wp_verify_nonce( $_POST['leamh_book_meta_box_nonce'], plugin_basename( __FILE__ ) ) )
-		    return $post_id;
+        return $post_id;
 
     $peoplefields = array('authors', 'editors', 'translators');
 
@@ -325,7 +325,7 @@ function leamh_save_book_meta_box( $post_id, $post ) {
 
 function leamh_save_grammar_meta_box( $post_id, $post ) {
     if ( !wp_verify_nonce( $_POST['leamh_grammar_meta_box_nonce'], plugin_basename( __FILE__ ) ) )
-		    return $post_id;
+        return $post_id;
 
     if ( !empty($_POST['leamh_book']) && !empty($_POST['leamh_book_text'])) {
         $leamh_grammar_entry = array(
@@ -339,7 +339,7 @@ function leamh_save_grammar_meta_box( $post_id, $post ) {
 
 function leamh_save_glossary_meta_box( $post_id, $post ) {
     if ( !wp_verify_nonce( $_POST['leamh_glossary_meta_box_nonce'], plugin_basename( __FILE__ ) ) )
-		    return $post_id;
+        return $post_id;
 
     if (!empty($_POST['leamh_book']) && !empty($_POST['leamh_book_text'])) {
         $leamh_grammar_entry = array(

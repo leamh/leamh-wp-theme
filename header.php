@@ -44,11 +44,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="nav-texts"><a href="<?php echo get_post_type_archive_link('texts'); ?>">Texts</a></li>
-        <li class="nav-grammars"><a href="<?php echo get_post_type_archive_link('grammars'); ?>">Grammar</a></li>
-        <li class="nav-glossary"><a href="<?php echo get_post_type_archive_link('glossary'); ?>">Glossary</a></li>
-        <li class="nav-book"><a href="<?php echo get_post_type_archive_link('book'); ?>">Books</a></li>
-        <li class="nav-person"><a href="<?php echo get_post_type_archive_link('person'); ?>">People</a></li>
+        <li><a href="<?php echo get_post_type_archive_link('texts'); ?>">Texts <span class="sr-only">(current)</span></a></li>
+        <li><a href="<?php echo get_post_type_archive_link('grammars'); ?>">Grammar</a></li>
+        <li><a href="<?php echo get_post_type_archive_link('glossary'); ?>">Glossary</a></li>
+        <li><a href="<?php echo get_post_type_archive_link('book'); ?>">Books</a></li>
+        <li><a href="<?php echo get_post_type_archive_link('person'); ?>">People</a></li>
       </ul>
       <?php get_search_form(); ?>
     </div><!-- /.navbar-collapse -->
